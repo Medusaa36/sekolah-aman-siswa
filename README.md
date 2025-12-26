@@ -1,59 +1,102 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+1. Sistem Pengaduan Bullying Siswa (Frontend Web)
+   
+    Aplikasi Frontend Web Siswa berbasis Laravel yang dirancang sebagai media pengaduan bullying secara aman, anonim (opsional), dan mudah, ditujukan bagi siswa yang tidak berani atau tidak memungkinkan untuk melapor langsung ke ruang BK. Aplikasi ini terintegrasi penuh dengan REST API Backend dan Dashboard Monitoring Guru BK (aplikasi terpisah), sehingga setiap laporan yang dikirim siswa dapat dipantau, ditindaklanjuti, dan direspons langsung oleh pihak sekolah.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+3. Latar Belakang & Tujuan
+   
+    Kasus bullying di lingkungan sekolah sering kali tidak terlaporkan karena:
+   
+    a. Siswa takut,
+   
+    b. Malu,
+   
+    c. Tidak berani bertemu langsung Guru BK,
+   
+    d. Atau tidak tahu harus melapor ke siapa.
+   
 
-## About Laravel
+    Aplikasi ini hadir sebagai solusi digital agar siswa dapat:
+   
+    a. Mengadu secara online dan aman,
+   
+    b. Tetap terhubung dengan Guru BK,
+   
+    c. Mendapatkan respons resmi dari sekolah tanpa tekanan sosial.
+   
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+3. Fitur Utama (Frontend Siswa)
+   
+   a. Landing Page Informasi Edukasi tentang bullying (fisik, verbal, cyber, dll).
+   
+   b. Form Pengaduan Bullying
+   
+   Fitur utama bagi siswa untuk melapor.
+   
+   Fitur:
+   
+   - Input kronologi kejadian bullying.
+   - Pilihan kategori bullying.   
+   - Upload bukti (foto).
+   - Informasi lokasi kejadian.
+   - Opsi identitas siswa (jika diperlukan).
+   - Data langsung dikirim ke API Backend.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+    c. Chatbot Bantuan Siswa
+   
+   Membantu siswa jika siswa tersebut mendapat bullying, orang tua mengetahui bahwa anak mereka mendapat bullying, atau siswa mengetahui bahwa siswa lainhya mendapat bullying, maka melapor kepada guru bk melalui website ini
+   
+   d. cek status pengaduan
+   
+   siswa dapat mengecek laporan pengaduan sudah sampai tahap mana seperti sedang proses, pemanggilan orang tua atau kasus telah selesai/ditutup. dan siswa juga dapat membaca respons dari guru bk yang bersangkutan.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+4. Teknologi yang digunakan
+   
+    a. Laravel
 
-## Learning Laravel
+    berfungsi sebagai frontend controller dan view handler. tidak menyimpan data laporan langsung kedalam database tetapi mengirim ke ke server melalui api.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+    b. Frontend / UI => Blade template , bootstrap 5
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    c. Semua data laporan, status, daftar sekolah, dan respons guru bk berasal dari API Backend yang dibuat oleh rekan tim saya
+   
+6. Arsitektur Sistem Secara Ringkas
+   
+    Siswa -> Frontend Web Siswa -> Backend API Server -> Dashboard Monitoring Guru BK
 
-## Laravel Sponsors
+8. Endponit API yang digunakan
+    
+    | Method | Endpoint                | Fungsi                          |
+    | ------ | ----------------------- | ------------------------------- |
+    | POST   | /pengaduan              | Mengirim laporan bullying siswa |
+    | GET    | /cek_status/{ticket_id} | Cek status laporan              |
+    | GET    | /api/sekolah            | Mengambil data sekolah          |
+    | GET    | /api/kategori           | Mengambil kategori bullying     |
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+7. Hak akses & batasan
+   a. frontend ini khusus untuk siswa
+   b. tidak memiliki akses monitoring global
+   c. tidak bisa melihat laporan siswa lain (harus memiliki kode tiket yang dikirimkan melalui email)
+   d. semua pengelolaan laporan aduan dilakukan oleh Guru BK melalui Dashboard Monitoring
 
-### Premium Partners
+8. Kolaborasi Tim
+   
+    Proyek ini dikembangkan secara tim dengan pembagian peran:
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+    a. Frontend Siswa (Aplikasi Ini) => Landing Page, form pengaduan, chatbot, pengecekan status laporan
+    
+    b. Dashboard Monitoring Guru BK => Monitoring laporan aduan sesuai dengan sekolah masing masing, dan tindak lanjut dari laporan tersebut
 
-## Contributing
+    c. Backend API => Endpoint, auth, proses data, model chatbot
+   
+===================================================
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+================== CATATAN AKHIR ======================
 
-## Code of Conduct
+===================================================
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Aplikasi ini dibuat sebagai:
+- Proyek Bootcamp & Hackathon Universitas Hang Tuah Pekanbaru.
+- Media edukasi dan solusi nyata permasalahan bullying yang terjadi di lingkungan sekolah
+- Sarana penghubung siswa ke guru bk secara aman dan profesional
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Harapan saya dan tim dengan adanya proyek yang kami buat ini dapat membantu para siswa yang menjadi korban bullying bisa mendapat tempat pengaduan terhadap kejadian yang mereka alami yang aman tanpa harus langsung keruang bk dengan alasan tertentu seperti takut atau hal lainnya dan kami berharap semua siswa yang menjadi korban dapat didengar dan tidak ada lagi kasus-kasus bullying yang terjadi disekolah terkhusus di indonesia.
