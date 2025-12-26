@@ -1,102 +1,169 @@
-1. Sistem Pengaduan Bullying Siswa (Frontend Web)
-   
-    Aplikasi Frontend Web Siswa berbasis Laravel yang dirancang sebagai media pengaduan bullying secara aman, anonim (opsional), dan mudah, ditujukan bagi siswa yang tidak berani atau tidak memungkinkan untuk melapor langsung ke ruang BK. Aplikasi ini terintegrasi penuh dengan REST API Backend dan Dashboard Monitoring Guru BK (aplikasi terpisah), sehingga setiap laporan yang dikirim siswa dapat dipantau, ditindaklanjuti, dan direspons langsung oleh pihak sekolah.
+# 📘 Sistem Pengaduan Bullying Siswa (Frontend Web)
 
-3. Latar Belakang & Tujuan
-   
-    Kasus bullying di lingkungan sekolah sering kali tidak terlaporkan karena:
-   
-    a. Siswa takut,
-   
-    b. Malu,
-   
-    c. Tidak berani bertemu langsung Guru BK,
-   
-    d. Atau tidak tahu harus melapor ke siapa.
-   
+Aplikasi **Frontend Web Siswa** berbasis **Laravel** yang dirancang sebagai media pengaduan bullying secara **aman**, **mudah**, dan **opsional anonim**. Aplikasi ini ditujukan bagi siswa yang tidak berani atau tidak memungkinkan untuk melapor langsung ke **Ruang BK**.
 
-    Aplikasi ini hadir sebagai solusi digital agar siswa dapat:
-   
-    a. Mengadu secara online dan aman,
-   
-    b. Tetap terhubung dengan Guru BK,
-   
-    c. Mendapatkan respons resmi dari sekolah tanpa tekanan sosial.
-   
+Frontend ini **terintegrasi penuh dengan REST API Backend** dan **Dashboard Monitoring Guru BK** (aplikasi terpisah), sehingga setiap laporan yang dikirim siswa dapat **dipantau, ditindaklanjuti, dan direspons secara resmi oleh pihak sekolah**.
 
-3. Fitur Utama (Frontend Siswa)
-   
-   a. Landing Page Informasi Edukasi tentang bullying (fisik, verbal, cyber, dll).
-   
-   b. Form Pengaduan Bullying
-   
-   Fitur utama bagi siswa untuk melapor.
-   
-   Fitur:
-   
-   - Input kronologi kejadian bullying.
-   - Pilihan kategori bullying.   
-   - Upload bukti (foto).
-   - Informasi lokasi kejadian.
-   - Opsi identitas siswa (jika diperlukan).
-   - Data langsung dikirim ke API Backend.
+---
 
-    c. Chatbot Bantuan Siswa
-   
-   Membantu siswa jika siswa tersebut mendapat bullying, orang tua mengetahui bahwa anak mereka mendapat bullying, atau siswa mengetahui bahwa siswa lainhya mendapat bullying, maka melapor kepada guru bk melalui website ini
-   
-   d. cek status pengaduan
-   
-   siswa dapat mengecek laporan pengaduan sudah sampai tahap mana seperti sedang proses, pemanggilan orang tua atau kasus telah selesai/ditutup. dan siswa juga dapat membaca respons dari guru bk yang bersangkutan.
+## 🎯 Latar Belakang & Tujuan
 
-4. Teknologi yang digunakan
-   
-    a. Laravel
+Kasus bullying di lingkungan sekolah sering kali **tidak terlaporkan** karena:
 
-    berfungsi sebagai frontend controller dan view handler. tidak menyimpan data laporan langsung kedalam database tetapi mengirim ke ke server melalui api.
+* 😟 Siswa merasa **takut**
+* 😔 Siswa merasa **malu**
+* 🚪 Tidak berani bertemu langsung dengan **Guru BK**
+* ❓ Tidak mengetahui harus melapor ke siapa
 
-    b. Frontend / UI => Blade template , bootstrap 5
+Melalui aplikasi ini, diharapkan siswa dapat:
 
-    c. Semua data laporan, status, daftar sekolah, dan respons guru bk berasal dari API Backend yang dibuat oleh rekan tim saya
-   
-6. Arsitektur Sistem Secara Ringkas
-   
-    Siswa -> Frontend Web Siswa -> Backend API Server -> Dashboard Monitoring Guru BK
+* 🛡️ Melakukan pengaduan secara **online dan aman**
+* 🤝 Tetap terhubung dengan **Guru BK** tanpa tekanan sosial
+* 📩 Mendapatkan **respons resmi dari pihak sekolah**
 
-8. Endponit API yang digunakan
-    
-    | Method | Endpoint                | Fungsi                          |
-    | ------ | ----------------------- | ------------------------------- |
-    | POST   | /pengaduan              | Mengirim laporan bullying siswa |
-    | GET    | /cek_status/{ticket_id} | Cek status laporan              |
-    | GET    | /api/sekolah            | Mengambil data sekolah          |
-    | GET    | /api/kategori           | Mengambil kategori bullying     |
+---
 
-7. Hak akses & batasan
-   a. frontend ini khusus untuk siswa
-   b. tidak memiliki akses monitoring global
-   c. tidak bisa melihat laporan siswa lain (harus memiliki kode tiket yang dikirimkan melalui email)
-   d. semua pengelolaan laporan aduan dilakukan oleh Guru BK melalui Dashboard Monitoring
+## 🚀 Fitur Utama (Frontend Siswa)
 
-8. Kolaborasi Tim
-   
-    Proyek ini dikembangkan secara tim dengan pembagian peran:
+### 1️⃣ Landing Page Edukasi
 
-    a. Frontend Siswa (Aplikasi Ini) => Landing Page, form pengaduan, chatbot, pengecekan status laporan
-    
-    b. Dashboard Monitoring Guru BK => Monitoring laporan aduan sesuai dengan sekolah masing masing, dan tindak lanjut dari laporan tersebut
+Halaman informasi dan edukasi mengenai bullying, meliputi:
 
-    c. Backend API => Endpoint, auth, proses data, model chatbot
-   
-===================================================
+* Bullying fisik
+* Bullying verbal
+* Cyber bullying
+* Jenis bullying lainnya
 
-================== CATATAN AKHIR ======================
+Tujuan utama halaman ini adalah meningkatkan **kesadaran siswa** terhadap bahaya bullying.
 
-===================================================
+---
 
-Aplikasi ini dibuat sebagai:
-- Proyek Bootcamp & Hackathon Universitas Hang Tuah Pekanbaru.
-- Media edukasi dan solusi nyata permasalahan bullying yang terjadi di lingkungan sekolah
-- Sarana penghubung siswa ke guru bk secara aman dan profesional
+### 2️⃣ Form Pengaduan Bullying
 
-Harapan saya dan tim dengan adanya proyek yang kami buat ini dapat membantu para siswa yang menjadi korban bullying bisa mendapat tempat pengaduan terhadap kejadian yang mereka alami yang aman tanpa harus langsung keruang bk dengan alasan tertentu seperti takut atau hal lainnya dan kami berharap semua siswa yang menjadi korban dapat didengar dan tidak ada lagi kasus-kasus bullying yang terjadi disekolah terkhusus di indonesia.
+Fitur inti aplikasi bagi siswa untuk melapor kejadian bullying.
+
+**Fitur Form:**
+
+* 📝 Input kronologi kejadian bullying
+* 🗂️ Pilihan kategori bullying
+* 📷 Upload bukti pendukung (foto)
+* 📍 Informasi lokasi kejadian
+* 👤 Opsi identitas siswa (opsional / anonim)
+* 🔄 Data dikirim langsung ke **Backend API**
+
+---
+
+### 3️⃣ Chatbot Bantuan Siswa
+
+Chatbot interaktif yang membantu:
+
+* Siswa yang menjadi korban bullying
+* Orang tua yang mengetahui anaknya mengalami bullying
+* Siswa yang mengetahui temannya mengalami bullying
+
+Chatbot akan mengarahkan pengguna untuk **melapor ke Guru BK melalui website ini**.
+
+---
+
+### 4️⃣ Cek Status Pengaduan
+
+Siswa dapat memantau perkembangan laporan dengan **kode tiket** yang dikirim melalui email.
+
+Informasi yang ditampilkan:
+
+* ⏳ Status laporan (diproses, pemanggilan orang tua, selesai)
+* 💬 Respons atau tindak lanjut dari Guru BK
+
+---
+
+## 🛠️ Teknologi yang Digunakan
+
+* **Laravel** → Frontend controller & view handler (tidak menyimpan data ke database)
+* **Blade Template** → UI rendering
+* **Bootstrap 5** → Desain responsif
+* **REST API** → Sumber data laporan, status, sekolah, dan kategori
+* **WebSocket Client** → Update data secara real-time
+
+---
+
+## 🧩 Arsitektur Sistem
+
+```
+Siswa
+  ↓
+Frontend Web Siswa (Laravel)
+  ↓
+Backend API Server
+  ↓
+Dashboard Monitoring Guru BK
+```
+
+---
+
+## 🔗 Endpoint API yang Digunakan
+
+| Method | Endpoint                | Fungsi                          |
+| ------ | ----------------------- | ------------------------------- |
+| POST   | /pengaduan              | Mengirim laporan bullying siswa |
+| GET    | /cek_status/{ticket_id} | Cek status laporan              |
+| GET    | /api/sekolah            | Mengambil data sekolah          |
+| GET    | /api/kategori           | Mengambil kategori bullying     |
+
+---
+
+## 🔐 Hak Akses & Batasan
+
+* Aplikasi ini **khusus untuk siswa**
+* Tidak memiliki akses monitoring global
+* Siswa **tidak dapat melihat laporan siswa lain**
+* Akses laporan hanya menggunakan **kode tiket**
+* Semua pengelolaan laporan dilakukan oleh **Guru BK melalui Dashboard Monitoring**
+
+---
+
+## 👥 Kolaborasi Tim
+
+Proyek ini dikembangkan secara **kolaboratif**, dengan pembagian peran sebagai berikut:
+
+* **Frontend Siswa (Aplikasi Ini)**
+
+  * Landing Page
+  * Form Pengaduan
+  * Chatbot
+  * Cek Status Pengaduan
+
+* **Dashboard Monitoring Guru BK**
+
+  * Monitoring laporan per sekolah
+  * Tindak lanjut laporan
+
+* **Backend API**
+
+  * Endpoint API
+  * Autentikasi
+  * Proses data
+  * Model Chatbot
+
+---
+
+## 🎓 Catatan Akhir
+
+Aplikasi ini dikembangkan sebagai:
+
+* 🏫 Proyek **Bootcamp & Hackathon Universitas Hang Tuah Pekanbaru**
+* 📚 Media edukasi dan solusi nyata terhadap permasalahan bullying
+* 🤍 Sarana penghubung siswa dan Guru BK secara aman dan profesional
+
+### 🌱 Harapan
+
+Kami berharap aplikasi ini dapat menjadi **tempat pengaduan yang aman** bagi siswa korban bullying, tanpa harus datang langsung ke ruang BK dengan berbagai alasan seperti rasa takut atau tekanan sosial.
+
+Semoga dengan adanya sistem ini:
+
+* Setiap siswa **didengar**
+* Setiap laporan **ditindaklanjuti**
+* Dan **tidak ada lagi kasus bullying** di lingkungan sekolah, khususnya di Indonesia.
+
+---
+
+✨ *Together, we create safer schools.*
